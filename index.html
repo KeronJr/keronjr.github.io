@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keron Junior Muhiire — Infrastructure & Security Engineer</title>
+<meta name="description" content="Keron Junior Muhiire — Infrastructure, DevOps and security engineer in Kigali, Rwanda. Linux, Docker, Snort IDS, penetration testing, memory forensics. Certified Ethical Hacker. Open to remote roles.">
+<meta property="og:title" content="Keron Junior Muhiire — Infrastructure & Security Engineer">
+<meta property="og:description" content="I keep critical systems secure, resilient, and running. Linux · Docker · Snort · pentesting · forensics. Open to remote work.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0E13;
+  --bg-soft:#0D1219;
+  --surface:#111823;
+  --surface-2:#16202C;
+  --border:#222C3A;
+  --border-bright:#30404F;
+  --text:#EAEFF5;
+  --text-2:#B6C2D0;
+  --muted:#7E8C9E;
+  --emerald:#3ECF8E;
+  --emerald-dim:#2BA876;
+  --cyan:#5CC8E8;
+  --glow:rgba(62,207,142,.14);
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'Inter',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 80%);
+}
+body::after{
+  content:"";position:fixed;top:-280px;left:50%;transform:translateX(-50%);
+  width:1100px;height:760px;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse at center,var(--glow),transparent 65%);
+  filter:blur(20px);
+}
+a{color:var(--emerald);text-decoration:none}
+a:hover{color:#5fe0a6}
+a:focus-visible,button:focus-visible{outline:2px solid var(--emerald);outline-offset:3px;border-radius:3px}
+::selection{background:rgba(62,207,142,.28);color:#fff}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(12px);background:rgba(10,14,19,.72);border-bottom:1px solid var(--border)}
+.nav-in{max-width:1120px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.01em;color:var(--text)}
+.brand .mk{width:30px;height:30px;border-radius:8px;background:linear-gradient(140deg,var(--emerald),var(--emerald-dim));display:grid;place-items:center;color:#06120C;font-family:var(--mono);font-weight:600;font-size:14px;box-shadow:0 0 18px rgba(62,207,142,.35)}
+.nav .spacer{flex:1}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:var(--text-2);font-size:14.5px;font-weight:500}
+.nav-links a:hover{color:var(--text)}
+.nav-status{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;color:var(--emerald);border:1px solid rgba(62,207,142,.3);background:rgba(62,207,142,.07);padding:6px 12px;border-radius:99px;white-space:nowrap}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--emerald);position:relative;flex-shrink:0}
+.pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--emerald);animation:ping 2s cubic-bezier(0,0,.2,1) infinite}
+@keyframes ping{75%,100%{transform:scale(2.6);opacity:0}}
+@media (prefers-reduced-motion:reduce){.pulse::after{animation:none}}
+@media(max-width:860px){.nav-links{display:none}}
+@media(max-width:520px){.nav-status span{display:none}.nav-status{padding:7px}}
+
+/* ---------- hero ---------- */
+.hero{padding:84px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1.32fr .9fr;gap:54px;align-items:center}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.kicker b{color:var(--emerald);font-weight:500}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,5.6vw,62px);line-height:1.04;letter-spacing:-.025em;margin-bottom:22px}
+.hero h1 .hl{background:linear-gradient(120deg,var(--emerald),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lede{font-size:clamp(16.5px,2vw,19px);color:var(--text-2);max-width:60ch;line-height:1.6}
+.hero .lede b{color:var(--text);font-weight:600}
+.hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-weight:600;font-size:15px;padding:13px 22px;border-radius:10px;border:1px solid transparent;transition:transform .14s ease,box-shadow .14s ease,background .14s ease,border-color .14s ease;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(140deg,var(--emerald),var(--emerald-dim));color:#06120C}
+.btn-primary:hover{box-shadow:0 10px 30px rgba(62,207,142,.32);color:#06120C}
+.btn-ghost{border-color:var(--border-bright);color:var(--text);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--emerald);background:rgba(62,207,142,.06)}
+
+/* signature: status card */
+.status-card{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.sc-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid var(--border);margin-bottom:6px}
+.sc-head .t{font-family:var(--mono);font-size:12.5px;color:var(--text-2);letter-spacing:.04em}
+.sc-head .live{font-family:var(--mono);font-size:11px;color:var(--emerald);display:flex;align-items:center;gap:7px}
+.sc-row{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(34,44,58,.6);gap:14px}
+.sc-row:last-of-type{border-bottom:none}
+.sc-row .name{font-size:14.5px;color:var(--text)}
+.sc-row .name span{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:2px}
+.sc-row .badge{font-family:var(--mono);font-size:11.5px;color:var(--emerald);display:flex;align-items:center;gap:7px;white-space:nowrap}
+.bar{display:flex;gap:3px;margin-top:14px}
+.bar i{flex:1;height:26px;border-radius:2px;background:linear-gradient(180deg,rgba(62,207,142,.7),rgba(62,207,142,.18));opacity:.85}
+.bar i:nth-child(7),.bar i:nth-child(12){background:linear-gradient(180deg,rgba(92,200,232,.7),rgba(92,200,232,.18))}
+@media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:40px}.status-card{max-width:480px}}
+
+/* ---------- metrics ---------- */
+.metrics{padding:8px 0 72px}
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.metric{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px 22px;position:relative;overflow:hidden;transition:border-color .15s ease,transform .15s ease}
+.metric:hover{border-color:var(--border-bright);transform:translateY(-3px)}
+.metric .num{font-family:var(--display);font-weight:700;font-size:36px;letter-spacing:-.02em;line-height:1;color:var(--text)}
+.metric .num.word{font-size:28px}
+.metric .num em{font-style:normal;color:var(--emerald)}
+.metric .lbl{font-size:13.5px;color:var(--text-2);margin-top:10px;line-height:1.45}
+.metric .tick{position:absolute;top:18px;right:18px;font-family:var(--mono);font-size:10px;color:var(--emerald);display:flex;align-items:center;gap:5px}
+@media(max-width:820px){.metric-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.metric-grid{grid-template-columns:1fr}}
+
+/* ---------- section frame ---------- */
+.block{padding:78px 0;border-top:1px solid var(--border)}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--emerald);display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--emerald);box-shadow:0 0 10px var(--emerald)}
+.block h2{font-family:var(--display);font-weight:700;font-size:clamp(26px,3.6vw,38px);letter-spacing:-.02em;line-height:1.1;margin-bottom:8px}
+.block .sub{color:var(--muted);font-size:16px;max-width:62ch}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:52px;margin-top:34px}
+.about-grid p{color:var(--text-2);margin-bottom:18px;max-width:62ch}
+.about-grid p:last-child{margin-bottom:0}
+.about-grid p strong{color:var(--text);font-weight:600}
+.now-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:26px;height:fit-content}
+.now-card .h{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.now-card li{list-style:none;padding:13px 0;border-bottom:1px solid var(--border);font-size:14.5px;color:var(--text-2);display:flex;gap:11px;line-height:1.5}
+.now-card li:last-child{border-bottom:none}
+.now-card li b{color:var(--text);font-weight:600}
+.now-card li::before{content:"▸";color:var(--emerald);flex-shrink:0}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:34px}}
+
+/* ---------- experience timeline ---------- */
+.timeline{margin-top:38px;position:relative;padding-left:30px}
+.timeline::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--border-bright),var(--border),transparent)}
+.tl-item{position:relative;padding:0 0 42px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-30px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--surface);border:2px solid var(--border-bright)}
+.tl-item.active::before{background:var(--emerald);border-color:var(--emerald);box-shadow:0 0 0 5px rgba(62,207,142,.16)}
+.tl-top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px}
+.tl-top h3{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.01em}
+.tl-when{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-left:auto;white-space:nowrap}
+.tl-org{font-size:14.5px;color:var(--text-2);margin-bottom:14px}
+.tl-org b{color:var(--emerald);font-weight:600}
+.tl-org .now{font-family:var(--mono);font-size:10.5px;color:var(--emerald);border:1px solid rgba(62,207,142,.35);border-radius:99px;padding:2px 9px;margin-left:8px;letter-spacing:.05em}
+.tl-item ul{padding:0}
+.tl-item li{list-style:none;position:relative;padding:6px 0 6px 22px;font-size:15px;color:var(--text-2);max-width:72ch}
+.tl-item li::before{content:"+";position:absolute;left:0;font-family:var(--mono);color:var(--emerald-dim);font-weight:600}
+.tl-item li b{color:var(--text);font-weight:600}
+
+/* ---------- projects ---------- */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:38px}
+.proj{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;display:flex;flex-direction:column;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.proj:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,.42);border-color:var(--border-bright)}
+.proj.feature{grid-column:1/-1;background:linear-gradient(140deg,var(--surface-2),var(--surface));border-left:2px solid var(--emerald)}
+.p-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:12px}
+.proj h3{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.01em}
+.p-tag{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px solid var(--border);border-radius:99px;padding:4px 11px;white-space:nowrap}
+.p-tag.hot{color:var(--emerald);border-color:rgba(62,207,142,.35)}
+.proj p{font-size:15px;color:var(--text-2);margin-bottom:18px;line-height:1.6}
+.proj p strong{color:var(--text);font-weight:600}
+.stack{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--text-2);background:var(--surface-2);border:1px solid var(--border);border-radius:7px;padding:5px 10px}
+.proj.feature .chip{background:rgba(62,207,142,.07);border-color:rgba(62,207,142,.22);color:#9be9c4}
+.p-link{font-family:var(--mono);font-size:13px;margin-top:18px;display:inline-flex;align-items:center;gap:6px}
+@media(max-width:760px){.proj-grid{grid-template-columns:1fr}}
+
+/* ---------- stack ---------- */
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+.cap{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px;transition:border-color .15s ease}
+.cap:hover{border-color:var(--border-bright)}
+.cap h4{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald);margin-bottom:15px;padding-bottom:13px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:9px}
+.cap li{list-style:none;font-size:14.5px;color:var(--text-2);padding:5px 0}
+.cap li b{color:var(--text);font-weight:600}
+@media(max-width:860px){.stack-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.stack-grid{grid-template-columns:1fr}}
+
+/* ---------- credentials ---------- */
+.cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;margin-top:38px}
+.cred-grid h4{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald);margin-bottom:18px}
+.edu{padding:18px 0;border-bottom:1px solid var(--border)}
+.edu:last-child{border-bottom:none}
+.edu .deg{font-family:var(--display);font-weight:600;font-size:17px}
+.edu .inst{color:var(--text-2);font-size:14.5px;margin-top:3px}
+.edu .yrs{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:5px}
+.cert li{list-style:none;padding:11px 0 11px 28px;position:relative;font-size:15px;color:var(--text-2);border-bottom:1px solid var(--border)}
+.cert li:last-child{border-bottom:none}
+.cert li::before{content:"✓";position:absolute;left:0;color:var(--emerald);font-weight:700}
+.cert li b{color:var(--text);font-weight:600}
+.cert .by{color:var(--muted);font-size:13px}
+@media(max-width:760px){.cred-grid{grid-template-columns:1fr;gap:32px}}
+
+/* ---------- contact ---------- */
+.contact{padding:90px 0 70px;border-top:1px solid var(--border)}
+.contact-card{background:linear-gradient(150deg,var(--surface-2),var(--surface));border:1px solid var(--border-bright);border-radius:20px;padding:56px;position:relative;overflow:hidden}
+.contact-card::after{content:"";position:absolute;top:-120px;right:-80px;width:420px;height:420px;background:radial-gradient(circle,var(--glow),transparent 65%);filter:blur(10px);pointer-events:none}
+.contact-card .eyebrow{margin-bottom:18px}
+.contact-card h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,4.4vw,44px);letter-spacing:-.025em;line-height:1.08;margin-bottom:16px;position:relative}
+.contact-card h2 .hl{background:linear-gradient(120deg,var(--emerald),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.contact-card .sub{color:var(--text-2);max-width:56ch;margin-bottom:34px;font-size:16.5px;position:relative}
+.email-primary{position:relative;display:inline-flex;align-items:center;gap:12px;font-family:var(--display);font-weight:600;font-size:clamp(20px,3vw,28px);letter-spacing:-.01em;color:var(--text);background:rgba(255,255,255,.03);border:1px solid var(--border-bright);border-radius:12px;padding:16px 22px;transition:border-color .15s ease,background .15s ease}
+.email-primary:hover{border-color:var(--emerald);background:rgba(62,207,142,.07);color:var(--text)}
+.email-primary .ico{color:var(--emerald);font-family:var(--mono);font-size:18px}
+.contact-rows{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 32px;margin:34px 0 38px;position:relative}
+.crow .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.crow a,.crow span{font-size:15px;color:var(--text);word-break:break-word}
+.crow a:hover{color:var(--emerald)}
+.contact-card .btn{position:relative}
+@media(max-width:760px){.contact-card{padding:36px 26px}.contact-rows{grid-template-columns:1fr 1fr}.email-primary{font-size:18px;width:100%}}
+@media(max-width:430px){.contact-rows{grid-template-columns:1fr}}
+
+footer{padding:30px 0 50px;border-top:1px solid var(--border)}
+.foot-in{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.foot-in a{color:var(--text-2)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+.hero .kicker,.hero h1,.hero .lede,.hero-cta{opacity:0;animation:rise .7s ease forwards}
+.hero h1{animation-delay:.08s}
+.hero .lede{animation-delay:.16s}
+.hero-cta{animation-delay:.24s}
+.status-card{opacity:0;animation:rise .7s ease .3s forwards}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.hero .kicker,.hero h1,.hero .lede,.hero-cta,.status-card{opacity:1;transform:none;animation:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top"><span class="mk">K</span>Keron Junior Muhiire</a>
+    <span class="spacer"></span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <span class="nav-status"><span class="pulse"></span><span>Open to remote work</span></span>
+  </div>
+</nav>
+
+<header id="top" class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="kicker"><b>//</b> Infrastructure · DevOps · Security &nbsp;—&nbsp; Kigali, Rwanda · UTC+2</div>
+      <h1>I keep critical systems <span class="hl">secure, resilient, and running.</span></h1>
+      <p class="lede">Infrastructure and security engineer with hands-on experience running <b>production Linux estates across three countries</b> and breaking into systems professionally so they get fixed first. Certified Ethical Hacker, currently in security at Bank of Kigali's tech arm and pursuing an M.S. at Carnegie Mellon University Africa.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Get in touch →</a>
+        <a class="btn btn-ghost" href="#projects">View projects</a>
+      </div>
+    </div>
+
+    <aside class="status-card" aria-label="Status overview">
+      <div class="sc-head">
+        <span class="t">~/keron · status</span>
+        <span class="live"><span class="pulse"></span>LIVE</span>
+      </div>
+      <div class="sc-row">
+        <div class="name">Infrastructure &amp; uptime<span>linux · docker · redis · monitoring</span></div>
+        <div class="badge"><span class="pulse"></span>operational</div>
+      </div>
+      <div class="sc-row">
+        <div class="name">Security operations<span>vapt · pentest · forensics · snort</span></div>
+        <div class="badge"><span class="pulse"></span>operational</div>
+      </div>
+      <div class="sc-row">
+        <div class="name">Availability<span>remote · contract or full-time</span></div>
+        <div class="badge"><span class="pulse"></span>open</div>
+      </div>
+      <div class="bar" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<section class="metrics wrap reveal">
+  <div class="metric-grid">
+    <div class="metric"><span class="tick"><span class="pulse"></span>ok</span><div class="num"><em>3</em></div><div class="lbl">Countries — production Linux estate operated &amp; monitored</div></div>
+    <div class="metric"><span class="tick"><span class="pulse"></span>ok</span><div class="num">50<em>+</em></div><div class="lbl">Custom Snort detection rules authored &amp; validated</div></div>
+    <div class="metric"><span class="tick"><span class="pulse"></span>ok</span><div class="num word">CEH</div><div class="lbl">Certified Ethical Hacker — EC-Council</div></div>
+    <div class="metric"><span class="tick"><span class="pulse"></span>ok</span><div class="num word">M.S.</div><div class="lbl">Information Technology — Carnegie Mellon Africa</div></div>
+  </div>
+</section>
+
+<main class="wrap">
+
+<section id="about" class="block reveal">
+  <div class="eyebrow">About</div>
+  <h2>I own both uptime and security.</h2>
+  <p class="sub">Systems that can't afford to go down — in the regulated, low-connectivity, on-premise conditions African fintech, government, and NGO programs actually run in.</p>
+  <div class="about-grid">
+    <div>
+      <p>I started in software engineering — designing, prototyping, and building things end to end — and over time my focus moved toward what I care about most: <strong>cybersecurity and systems infrastructure</strong>. I still write code; it makes me sharper on both sides. But my work now centers on keeping systems secure, resilient, and online.</p>
+      <p>At Baron Sports Gaming I ran the Linux infrastructure behind real-time tax-tracking systems for national revenue authorities across three countries — Docker, Redis, monitoring, incident response, and the runbooks that let other engineers repeat my deployments without me in the room. Before that I deployed enterprise services — NFS, LDAP, Active Directory, DNS/DHCP — inside MTN Rwanda, one of Africa's largest telecoms.</p>
+      <p>Today I work security from the inside: <strong>vulnerability assessment, web-application penetration testing, and memory forensics</strong> at Bank of Kigali's technology arm. I'm comfortable taking a system from reconnaissance all the way through to a hardened, monitored, documented production service.</p>
+    </div>
+    <aside class="now-card">
+      <div class="h"><span class="pulse"></span>Running now</div>
+      <ul>
+        <li><b>InfoSec Intern · Bank of Kigali Techouse</b> — VAPT, web-app pentests, memory forensics</li>
+        <li><b>M.S. Information Technology · CMU Africa</b> — Cybersecurity &amp; Software Engineering</li>
+        <li><b>Mastercard Foundation Scholar</b></li>
+        <li>Building agentic-AI tooling for intrusion detection &amp; incident reporting</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section id="experience" class="block reveal">
+  <div class="eyebrow">Experience</div>
+  <h2>Track record</h2>
+  <p class="sub">Telecom, multi-country platforms, and now banking security — production systems with real consequences.</p>
+  <div class="timeline">
+
+    <div class="tl-item active">
+      <div class="tl-top">
+        <h3>Information Security Intern</h3>
+        <span class="tl-when">May 2026 — present</span>
+      </div>
+      <div class="tl-org"><b>Bank of Kigali (BK) Techouse Ltd</b> · Fintech / banking technology<span class="now">● ACTIVE</span></div>
+      <ul>
+        <li>Conduct <b>vulnerability assessments and penetration tests</b> against the company's web applications, reporting exploitable findings with clear remediation guidance.</li>
+        <li>Perform <b>memory forensics</b> in security investigations — acquiring and analyzing volatile memory to surface indicators of compromise.</li>
+        <li>Support the security team's VAPT workflow inside a regulated banking-technology environment.</li>
+      </ul>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-top">
+        <h3>System Administrator — Infrastructure &amp; DevOps</h3>
+        <span class="tl-when">Aug 2024 — Aug 2025</span>
+      </div>
+      <div class="tl-org"><b>Baron Sports Gaming Ltd (Forzza)</b> · Multi-country betting &amp; tax-reporting platform</div>
+      <ul>
+        <li>Operated <b>Linux server infrastructure across 3 countries</b> supporting real-time tax-tracking systems for national revenue authorities.</li>
+        <li>Deployed and maintained the <b>Docker containers and Redis instances</b> powering multi-country tax-processing pipelines — lifecycle, networking, persistence.</li>
+        <li>Built monitoring around performance, container health, logs, and alerting; investigated and remediated incidents across distributed environments.</li>
+        <li>Administered PBX and supporting Linux services; wrote runbooks and Bash automation so deployments and recoveries could be repeated by other engineers.</li>
+      </ul>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-top">
+        <h3>Systems Engineer &amp; Software Developer</h3>
+        <span class="tl-when">Jul 2023 — Sep 2023</span>
+      </div>
+      <div class="tl-org"><b>MTN Rwanda</b> · One of Africa's largest telecoms</div>
+      <ul>
+        <li>Deployed and configured <b>NFS, LDAP, and LVM</b> for secure file sharing, centralized authentication, and flexible storage on enterprise Linux servers.</li>
+        <li>Maintained Active Directory, DNS, and DHCP underpinning core network reliability for the corporate environment.</li>
+        <li>Built backend services for nationwide operations — an Agency Management API and a USSD registration system used in the field on low-bandwidth infrastructure.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects" class="block reveal">
+  <div class="eyebrow">Selected work</div>
+  <h2>Projects</h2>
+  <p class="sub">Built across both sides of security — offense to validate, defense to protect.</p>
+  <div class="proj-grid">
+
+    <article class="proj feature">
+      <div class="p-top">
+        <h3>Network IDS with Agentic AI</h3>
+        <span class="p-tag hot">● Primary contributor · 2026</span>
+      </div>
+      <p>Designed, deployed, and hardened a <strong>Snort 2.9.20 network intrusion detection system</strong> on a dedicated Linux VM — UFW firewalling, SSH hardening, promiscuous-mode monitoring. Ran full-cycle reconnaissance and exploitation against two vulnerable targets — Nmap enumeration, CVE-based exploits, Hydra credential attacks, and a multi-hop pivot — to validate detection coverage. Authored and tuned <strong>50 custom detection rules across four attack categories</strong>, validating each with Scapy, tcpdump, and Wireshark. Then built an <strong>agentic-AI pipeline</strong> that automates vulnerability assessment, rule generation, and iterative refinement — paired with a local-LLM (Ollama) incident-reporting service with file monitoring, IoC parsing, and automated PDF reports.</p>
+      <div class="stack">
+        <span class="chip">Snort</span><span class="chip">Linux hardening</span><span class="chip">Nmap</span><span class="chip">Hydra</span><span class="chip">Scapy</span><span class="chip">Wireshark</span><span class="chip">Agentic AI</span><span class="chip">Ollama</span>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="p-top">
+        <h3>CyberFlask</h3>
+        <span class="p-tag">2025</span>
+      </div>
+      <p>A Flask web application built security-first: salted-and-hashed authentication, time-based <strong>OTP 2FA</strong>, three-tier <strong>role-based access control</strong> with a central permission guard, <strong>AES-256</strong> encrypted file storage, HTTPS with HSTS, and tamper-resistant audit logging of every admin action. Containerized for reproducible deployment; TCP-level threats analyzed and mitigated.</p>
+      <div class="stack">
+        <span class="chip">Flask</span><span class="chip">AES-256</span><span class="chip">2FA / OTP</span><span class="chip">RBAC</span><span class="chip">TLS / HSTS</span><span class="chip">Docker</span>
+      </div>
+      <a class="p-link" href="https://github.com/KeronJr" target="_blank" rel="noopener">→ github.com/KeronJr</a>
+    </article>
+
+    <article class="proj">
+      <div class="p-top">
+        <h3>Keylogger creation &amp; ML detection</h3>
+        <span class="p-tag">2025</span>
+      </div>
+      <p>Studied attacker tradecraft from both sides in a controlled lab: built a consent-based telemetry capture tool to understand keylogger behavior, then trained a <strong>machine-learning detection pipeline</strong> on CIC and Kaggle datasets to classify keylogger-like activity from process and network telemetry.</p>
+      <div class="stack">
+        <span class="chip">Python</span><span class="chip">Machine learning</span><span class="chip">CIC datasets</span><span class="chip">Network telemetry</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="stack" class="block reveal">
+  <div class="eyebrow">Capabilities</div>
+  <h2>The stack</h2>
+  <p class="sub">From the kernel up to the firewall rule — and the report that explains it.</p>
+  <div class="stack-grid">
+    <div class="cap"><h4><span class="pulse"></span>Containers &amp; cloud</h4><ul>
+      <li><b>Docker</b> &amp; Compose (production)</li><li>Kubernetes (coursework + lab)</li><li>Docker Swarm</li><li>GCP / AWS fundamentals</li><li>VMware, VirtualBox</li>
+    </ul></div>
+    <div class="cap"><h4><span class="pulse"></span>Linux &amp; systems</h4><ul>
+      <li><b>Ubuntu / Debian / RHEL</b> admin</li><li>LVM, NFS, systemd, PBX</li><li>Active Directory, LDAP</li><li>DNS, DHCP, networking</li><li>Redis (production), SQLite, PL/SQL</li>
+    </ul></div>
+    <div class="cap"><h4><span class="pulse"></span>Security</h4><ul>
+      <li><b>Penetration testing</b> &amp; VAPT</li><li>Memory forensics</li><li>Snort IDS &amp; rule authoring</li><li>AES-256, TLS, RBAC, 2FA, audit logging</li><li>Recon → exploit → remediate</li>
+    </ul></div>
+    <div class="cap"><h4><span class="pulse"></span>Automation &amp; code</h4><ul>
+      <li><b>Bash</b>, PowerShell, Python</li><li>Flask &amp; API development</li><li>Deployment scripts &amp; runbooks</li><li>Configuration templates</li>
+    </ul></div>
+    <div class="cap"><h4><span class="pulse"></span>Monitoring &amp; ops</h4><ul>
+      <li>Container health &amp; log monitoring</li><li>Alerting &amp; incident response</li><li>tcpdump, Wireshark, Scapy</li><li>Multi-site distributed estates</li>
+    </ul></div>
+    <div class="cap"><h4><span class="pulse"></span>Languages</h4><ul>
+      <li><b>English</b> — fluent</li><li><b>Kinyarwanda</b> — native</li><li><b>French</b> — working</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="credentials" class="block reveal">
+  <div class="eyebrow">Background</div>
+  <h2>Education &amp; certifications</h2>
+  <div class="cred-grid">
+    <div>
+      <h4>Education</h4>
+      <div class="edu">
+        <div class="deg">M.S., Information Technology</div>
+        <div class="inst">Carnegie Mellon University Africa — Cybersecurity &amp; Software Engineering</div>
+        <div class="yrs">2025 → 2027 (expected) · Mastercard Foundation Scholar</div>
+      </div>
+      <div class="edu">
+        <div class="deg">B.S., Information Technology</div>
+        <div class="inst">Adventist University of Central Africa — Software Engineering</div>
+        <div class="yrs">2020 → 2024 · Graduated with Grand Distinction</div>
+      </div>
+    </div>
+    <div>
+      <h4>Certifications</h4>
+      <ul class="cert">
+        <li><b>Certified Ethical Hacker (CEH)</b> <span class="by">— EC-Council</span></li>
+        <li><b>Certified Cybersecurity Educator Professional (CCEP)</b> <span class="by">— Red Team Leaders</span></li>
+        <li><b>ISC2 Candidate</b> <span class="by">— ISC2</span></li>
+        <li><b>Network Security · Cybersecurity Essentials · NDG Linux Essentials</b> <span class="by">— Cisco</span></li>
+        <li><b>Google IT Support · Cybersecurity Tools &amp; Attacks</b> <span class="by">— Google / IBM</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section id="contact" class="contact wrap reveal">
+  <div class="contact-card">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Need someone who can <span class="hl">own uptime and security</span>?</h2>
+    <p class="sub">I'm open to remote roles and contracts in infrastructure, security operations, and systems administration. Based in Kigali (UTC+2) with strong overlap with EMEA, UK, and US-East hours — the fastest way to reach me is email, and I usually reply within a day.</p>
+
+    <a class="email-primary" href="mailto:kmuhiire@andrew.cmu.edu?subject=Opportunity%20for%20Keron"><span class="ico">✉</span>kmuhiire@andrew.cmu.edu</a>
+
+    <div class="contact-rows">
+      <div class="crow"><div class="k">Alt email</div><a href="mailto:keronjunior234@gmail.com">keronjunior234@gmail.com</a></div>
+      <div class="crow"><div class="k">LinkedIn</div><a href="https://www.linkedin.com/in/keron-junior-muhiire-6baa141bb" target="_blank" rel="noopener">keron-junior-muhiire</a></div>
+      <div class="crow"><div class="k">GitHub</div><a href="https://github.com/KeronJr" target="_blank" rel="noopener">github.com/KeronJr</a></div>
+      <div class="crow"><div class="k">Location</div><span>Kigali, Rwanda · UTC+2</span></div>
+    </div>
+
+    <a class="btn btn-primary" href="mailto:kmuhiire@andrew.cmu.edu?subject=Opportunity%20for%20Keron">Email me →</a>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="foot-in">
+    <span>© <span id="yr">2026</span> Keron Junior Muhiire · Kigali, Rwanda</span>
+    <span><a href="#top">Back to top ↑</a></span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.06 });
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
