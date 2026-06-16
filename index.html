@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keron Junior Muhiire — Infrastructure & Security Engineer</title>
-<meta name="description" content="Keron Junior Muhiire — Infrastructure, DevOps and security engineer in Kigali, Rwanda. Linux, Docker, Snort IDS, penetration testing, memory forensics. Certified Ethical Hacker. Open to remote roles.">
-<meta property="og:title" content="Keron Junior Muhiire — Infrastructure & Security Engineer">
+<title>Keron Junior Muhiire - Infrastructure & Security Engineer</title>
+<meta name="description" content="Keron Junior Muhiire - Infrastructure, DevOps and security engineer in Kigali, Rwanda. Linux, Docker, Snort IDS, penetration testing, memory forensics. Certified Ethical Hacker. Open to remote roles.">
+<meta property="og:title" content="Keron Junior Muhiire - Infrastructure & Security Engineer">
 <meta property="og:description" content="I keep critical systems secure, resilient, and running. Linux · Docker · Snort · pentesting · forensics. Open to remote work.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -178,8 +178,26 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--emerald);outline-of
 .stack{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--text-2);background:var(--surface-2);border:1px solid var(--border);border-radius:7px;padding:5px 10px}
 .proj.feature .chip{background:rgba(62,207,142,.07);border-color:rgba(62,207,142,.22);color:#9be9c4}
+.proj.feature.ml{border-left-color:var(--cyan)}
+.proj.ml .chip{background:rgba(92,200,232,.07);border-color:rgba(92,200,232,.22);color:#a9def0}
+.p-tag.cool{color:var(--cyan);border-color:rgba(92,200,232,.35)}
 .p-link{font-family:var(--mono);font-size:13px;margin-top:18px;display:inline-flex;align-items:center;gap:6px}
 @media(max-width:760px){.proj-grid{grid-template-columns:1fr}}
+
+/* ---------- ml / data section ---------- */
+.note-tag{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--text-2);background:var(--surface);border:1px solid var(--border);border-radius:99px;padding:7px 14px;margin-top:18px}
+.note-tag b{color:var(--cyan);font-weight:600}
+.ml-result{display:flex;align-items:baseline;gap:10px;margin:2px 0 16px;padding:11px 14px;background:rgba(92,200,232,.06);border:1px solid rgba(92,200,232,.18);border-radius:9px}
+.ml-result .rk{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);white-space:nowrap}
+.ml-result .rv{font-size:14px;color:var(--text);font-weight:500;line-height:1.4}
+.ml-result .rv b{color:var(--cyan);font-weight:700}
+.skills-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:26px;margin-top:18px}
+.skills-card .h{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.skills-row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 36px}
+.skills-row div{font-size:14.5px;color:var(--text-2);line-height:1.5;padding-left:20px;position:relative}
+.skills-row div::before{content:"›";position:absolute;left:0;color:var(--cyan);font-weight:700}
+.skills-row div b{color:var(--text);font-weight:600}
+@media(max-width:680px){.skills-row{grid-template-columns:1fr}}
 
 /* ---------- stack ---------- */
 .stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
@@ -253,6 +271,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--border)}
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#ml">Data &amp; ML</a>
       <a href="#stack">Stack</a>
       <a href="#contact">Contact</a>
     </div>
@@ -263,9 +282,9 @@ footer{padding:30px 0 50px;border-top:1px solid var(--border)}
 <header id="top" class="hero wrap">
   <div class="hero-grid">
     <div>
-      <div class="kicker"><b>//</b> Infrastructure · DevOps · Security &nbsp;—&nbsp; Kigali, Rwanda · UTC+2</div>
+      <div class="kicker"><b>//</b> Infrastructure · DevOps · Security · Software &nbsp;-&nbsp; Kigali, Rwanda · UTC+2</div>
       <h1>I keep critical systems <span class="hl">secure, resilient, and running.</span></h1>
-      <p class="lede">Infrastructure and security engineer with hands-on experience running <b>production Linux estates across three countries</b> and breaking into systems professionally so they get fixed first. Certified Ethical Hacker, currently in security at Bank of Kigali's tech arm and pursuing an M.S. at Carnegie Mellon University Africa.</p>
+      <p class="lede">Infrastructure and security engineer who came up through software development, with hands-on experience running <b>production Linux estates across three countries</b> and breaking into systems professionally so they get fixed first. Certified Ethical Hacker, currently in security at Bank of Kigali's tech arm and pursuing an M.S. at Carnegie Mellon University Africa.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#contact">Get in touch →</a>
         <a class="btn btn-ghost" href="#projects">View projects</a>
@@ -298,10 +317,10 @@ footer{padding:30px 0 50px;border-top:1px solid var(--border)}
 
 <section class="metrics wrap reveal">
   <div class="metric-grid">
-    <div class="metric"><span class="tick"><span class="pulse"></span>ok</span><div class="num"><em>3</em></div><div class="lbl">Countries — production Linux estate operated &amp; monitored</div></div>
+    <div class="metric"><span class="tick"><span class="pulse"></span>ok</span><div class="num"><em>3</em></div><div class="lbl">Countries - production Linux estate operated &amp; monitored</div></div>
     <div class="metric"><span class="tick"><span class="pulse"></span>ok</span><div class="num">50<em>+</em></div><div class="lbl">Custom Snort detection rules authored &amp; validated</div></div>
-    <div class="metric"><span class="tick"><span class="pulse"></span>ok</span><div class="num word">CEH</div><div class="lbl">Certified Ethical Hacker — EC-Council</div></div>
-    <div class="metric"><span class="tick"><span class="pulse"></span>ok</span><div class="num word">M.S.</div><div class="lbl">Information Technology — Carnegie Mellon Africa</div></div>
+    <div class="metric"><span class="tick"><span class="pulse"></span>ok</span><div class="num word">CEH</div><div class="lbl">Certified Ethical Hacker - EC-Council</div></div>
+    <div class="metric"><span class="tick"><span class="pulse"></span>ok</span><div class="num word">M.S.</div><div class="lbl">Information Technology - Carnegie Mellon Africa</div></div>
   </div>
 </section>
 
@@ -310,18 +329,18 @@ footer{padding:30px 0 50px;border-top:1px solid var(--border)}
 <section id="about" class="block reveal">
   <div class="eyebrow">About</div>
   <h2>I own both uptime and security.</h2>
-  <p class="sub">Systems that can't afford to go down — in the regulated, low-connectivity, on-premise conditions African fintech, government, and NGO programs actually run in.</p>
+  <p class="sub">Systems that can't afford to go down, in the regulated, low-connectivity, on-premise conditions where African fintech, government, and NGO programs operate.</p>
   <div class="about-grid">
     <div>
-      <p>I started in software engineering — designing, prototyping, and building things end to end — and over time my focus moved toward what I care about most: <strong>cybersecurity and systems infrastructure</strong>. I still write code; it makes me sharper on both sides. But my work now centers on keeping systems secure, resilient, and online.</p>
-      <p>At Baron Sports Gaming I ran the Linux infrastructure behind real-time tax-tracking systems for national revenue authorities across three countries — Docker, Redis, monitoring, incident response, and the runbooks that let other engineers repeat my deployments without me in the room. Before that I deployed enterprise services — NFS, LDAP, Active Directory, DNS/DHCP — inside MTN Rwanda, one of Africa's largest telecoms.</p>
+      <p>I started in software engineering - designing, prototyping, and building things end to end - and over time my focus moved toward what I care about most: <strong>cybersecurity and systems infrastructure</strong>. I still build software, from backend APIs to full-stack web apps, which keeps me sharper on both sides; my day-to-day now centers on keeping systems secure, resilient, and online.</p>
+      <p>At Baron Sports Gaming I ran the Linux infrastructure behind real-time tax-tracking systems for national revenue authorities across three countries - Docker, Redis, monitoring, incident response, and the runbooks that let other engineers repeat my deployments without me in the room. Before that I deployed enterprise services - NFS, LDAP, Active Directory, DNS/DHCP - inside MTN Rwanda, one of Africa's largest telecoms.</p>
       <p>Today I work security from the inside: <strong>vulnerability assessment, web-application penetration testing, and memory forensics</strong> at Bank of Kigali's technology arm. I'm comfortable taking a system from reconnaissance all the way through to a hardened, monitored, documented production service.</p>
     </div>
     <aside class="now-card">
       <div class="h"><span class="pulse"></span>Running now</div>
       <ul>
-        <li><b>InfoSec Intern · Bank of Kigali Techouse</b> — VAPT, web-app pentests, memory forensics</li>
-        <li><b>M.S. Information Technology · CMU Africa</b> — Cybersecurity &amp; Software Engineering</li>
+        <li><b>InfoSec Intern · Bank of Kigali Techouse</b> - VAPT, web-app pentests, memory forensics</li>
+        <li><b>M.S. Information Technology · CMU Africa</b> - Cybersecurity &amp; Software Engineering</li>
         <li><b>Mastercard Foundation Scholar</b></li>
         <li>Building agentic-AI tooling for intrusion detection &amp; incident reporting</li>
       </ul>
@@ -332,31 +351,31 @@ footer{padding:30px 0 50px;border-top:1px solid var(--border)}
 <section id="experience" class="block reveal">
   <div class="eyebrow">Experience</div>
   <h2>Track record</h2>
-  <p class="sub">Telecom, multi-country platforms, and now banking security — production systems with real consequences.</p>
+  <p class="sub">Telecom, multi-country platforms, and now banking security - production systems with real consequences.</p>
   <div class="timeline">
 
     <div class="tl-item active">
       <div class="tl-top">
         <h3>Information Security Intern</h3>
-        <span class="tl-when">May 2026 — present</span>
+        <span class="tl-when">May 2026 - present</span>
       </div>
       <div class="tl-org"><b>Bank of Kigali (BK) Techouse Ltd</b> · Fintech / banking technology<span class="now">● ACTIVE</span></div>
       <ul>
         <li>Conduct <b>vulnerability assessments and penetration tests</b> against the company's web applications, reporting exploitable findings with clear remediation guidance.</li>
-        <li>Perform <b>memory forensics</b> in security investigations — acquiring and analyzing volatile memory to surface indicators of compromise.</li>
+        <li>Perform <b>memory forensics</b> in security investigations - acquiring and analyzing volatile memory to surface indicators of compromise.</li>
         <li>Support the security team's VAPT workflow inside a regulated banking-technology environment.</li>
       </ul>
     </div>
 
     <div class="tl-item">
       <div class="tl-top">
-        <h3>System Administrator — Infrastructure &amp; DevOps</h3>
-        <span class="tl-when">Aug 2024 — Aug 2025</span>
+        <h3>System Administrator - Infrastructure &amp; DevOps</h3>
+        <span class="tl-when">Aug 2024 - Aug 2025</span>
       </div>
       <div class="tl-org"><b>Baron Sports Gaming Ltd (Forzza)</b> · Multi-country betting &amp; tax-reporting platform</div>
       <ul>
         <li>Operated <b>Linux server infrastructure across 3 countries</b> supporting real-time tax-tracking systems for national revenue authorities.</li>
-        <li>Deployed and maintained the <b>Docker containers and Redis instances</b> powering multi-country tax-processing pipelines — lifecycle, networking, persistence.</li>
+        <li>Deployed and maintained the <b>Docker containers and Redis instances</b> powering multi-country tax-processing pipelines - lifecycle, networking, persistence.</li>
         <li>Built monitoring around performance, container health, logs, and alerting; investigated and remediated incidents across distributed environments.</li>
         <li>Administered PBX and supporting Linux services; wrote runbooks and Bash automation so deployments and recoveries could be repeated by other engineers.</li>
       </ul>
@@ -365,13 +384,13 @@ footer{padding:30px 0 50px;border-top:1px solid var(--border)}
     <div class="tl-item">
       <div class="tl-top">
         <h3>Systems Engineer &amp; Software Developer</h3>
-        <span class="tl-when">Jul 2023 — Sep 2023</span>
+        <span class="tl-when">Jul 2023 - Sep 2023</span>
       </div>
       <div class="tl-org"><b>MTN Rwanda</b> · One of Africa's largest telecoms</div>
       <ul>
         <li>Deployed and configured <b>NFS, LDAP, and LVM</b> for secure file sharing, centralized authentication, and flexible storage on enterprise Linux servers.</li>
         <li>Maintained Active Directory, DNS, and DHCP underpinning core network reliability for the corporate environment.</li>
-        <li>Built backend services for nationwide operations — an Agency Management API and a USSD registration system used in the field on low-bandwidth infrastructure.</li>
+        <li>Built backend services for nationwide operations - an Agency Management API and a USSD registration system used in the field on low-bandwidth infrastructure.</li>
       </ul>
     </div>
 
@@ -381,7 +400,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--border)}
 <section id="projects" class="block reveal">
   <div class="eyebrow">Selected work</div>
   <h2>Projects</h2>
-  <p class="sub">Built across both sides of security — offense to validate, defense to protect.</p>
+  <p class="sub">Built across both sides of security - offense to validate, defense to protect.</p>
   <div class="proj-grid">
 
     <article class="proj feature">
@@ -389,7 +408,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--border)}
         <h3>Network IDS with Agentic AI</h3>
         <span class="p-tag hot">● Primary contributor · 2026</span>
       </div>
-      <p>Designed, deployed, and hardened a <strong>Snort 2.9.20 network intrusion detection system</strong> on a dedicated Linux VM — UFW firewalling, SSH hardening, promiscuous-mode monitoring. Ran full-cycle reconnaissance and exploitation against two vulnerable targets — Nmap enumeration, CVE-based exploits, Hydra credential attacks, and a multi-hop pivot — to validate detection coverage. Authored and tuned <strong>50 custom detection rules across four attack categories</strong>, validating each with Scapy, tcpdump, and Wireshark. Then built an <strong>agentic-AI pipeline</strong> that automates vulnerability assessment, rule generation, and iterative refinement — paired with a local-LLM (Ollama) incident-reporting service with file monitoring, IoC parsing, and automated PDF reports.</p>
+      <p>Designed, deployed, and hardened a <strong>Snort 2.9.20 network intrusion detection system</strong> on a dedicated Linux VM - UFW firewalling, SSH hardening, promiscuous-mode monitoring. Ran full-cycle reconnaissance and exploitation against two vulnerable targets - Nmap enumeration, CVE-based exploits, Hydra credential attacks, and a multi-hop pivot - to validate detection coverage. Authored and tuned <strong>50 custom detection rules across four attack categories</strong>, validating each with Scapy, tcpdump, and Wireshark. Then built an <strong>agentic-AI pipeline</strong> that automates vulnerability assessment, rule generation, and iterative refinement - paired with a local-LLM (Ollama) incident-reporting service with file monitoring, IoC parsing, and automated PDF reports.</p>
       <div class="stack">
         <span class="chip">Snort</span><span class="chip">Linux hardening</span><span class="chip">Nmap</span><span class="chip">Hydra</span><span class="chip">Scapy</span><span class="chip">Wireshark</span><span class="chip">Agentic AI</span><span class="chip">Ollama</span>
       </div>
@@ -421,10 +440,83 @@ footer{padding:30px 0 50px;border-top:1px solid var(--border)}
   </div>
 </section>
 
+<section id="ml" class="block reveal">
+  <div class="eyebrow">Data &amp; Machine Learning</div>
+  <h2>Machine learning projects</h2>
+  <p class="sub">Graduate coursework spanning the full applied-ML workflow: statistical inference, time series, supervised and unsupervised learning, and deep learning, with attention to fairness and model explainability.</p>
+  <div class="note-tag"><span class="pulse"></span>Academic projects · <b>Carnegie Mellon University Africa (DIAML)</b></div>
+
+  <div class="proj-grid">
+
+    <article class="proj feature ml">
+      <div class="p-top">
+        <h3>Loan-default prediction with fairness &amp; explainability</h3>
+        <span class="p-tag cool">Classification · responsible ML</span>
+      </div>
+      <div class="ml-result"><span class="rk">Result</span><span class="rv">Logistic Regression - <b>85.4% accuracy, 0.90 F1</b>; fairness audit found no significant disparate impact</span></div>
+      <p>A leakage-free classification pipeline (Logistic Regression + SGD) on applicant data. Beyond raw accuracy, it adds <strong>disparate-impact auditing with mitigation</strong> across sensitive subgroups and <strong>SHAP and LIME explainability</strong>, which identified credit history as the dominant driver.</p>
+      <div class="stack">
+        <span class="chip">scikit-learn</span><span class="chip">SHAP</span><span class="chip">LIME</span><span class="chip">Bias auditing</span><span class="chip">Logistic Regression</span><span class="chip">ROC-AUC</span>
+      </div>
+    </article>
+
+    <article class="proj ml">
+      <div class="p-top">
+        <h3>DJIA market structure - PCA, clustering &amp; LSTM</h3>
+        <span class="p-tag">Unsupervised + deep learning</span>
+      </div>
+      <div class="ml-result"><span class="rk">Result</span><span class="rv">LSTM beat SARIMA &amp; MA baselines - <b>RMSE 8.03</b> vs 9.55 vs 21.1</span></div>
+      <p>End-to-end study of the Dow: live prices via yfinance, log returns, <strong>PCA</strong> to extract the market factor (PC1 = 21.9% of variance), <strong>hierarchical + K-Means clustering</strong> that recovered real sector groupings, and an <strong>LSTM</strong> forecaster benchmarked against SARIMA and a moving-average baseline with proper stationarity testing.</p>
+      <div class="stack">
+        <span class="chip">PCA</span><span class="chip">K-Means</span><span class="chip">LSTM</span><span class="chip">TensorFlow / Keras</span><span class="chip">SARIMA</span><span class="chip">yfinance</span>
+      </div>
+    </article>
+
+    <article class="proj ml">
+      <div class="p-top">
+        <h3>Power-grid time-series analysis</h3>
+        <span class="p-tag">Time series · inference</span>
+      </div>
+      <div class="ml-result"><span class="rk">Result</span><span class="rv">Clean, timezone-correct dataset; <b>significant</b> weekday/weekend demand structure confirmed by t-test</span></div>
+      <p>Quarter-hourly electricity data for the island of Ireland: <strong>DST-aware datetime handling</strong>, gap detection and interpolation, autocorrelation exposing daily seasonality, weekday-vs-weekend significance testing, and wind-penetration CDFs.</p>
+      <div class="stack">
+        <span class="chip">pandas</span><span class="chip">statsmodels</span><span class="chip">Autocorrelation</span><span class="chip">Hypothesis testing</span><span class="chip">DST handling</span>
+      </div>
+    </article>
+
+    <article class="proj ml">
+      <div class="p-top">
+        <h3>Life-expectancy regression</h3>
+        <span class="p-tag">Regression · tuning</span>
+      </div>
+      <div class="ml-result"><span class="rk">Result</span><span class="rv">Random Forest - <b>R² = 0.96</b>, RMSE 1.78 years across 4 tuned regressors</span></div>
+      <p>WHO/UN indicators with validated <strong>KNN imputation</strong> (checked against distribution drift), IQR outlier capping, engineered composite indices, and four regressors (Decision Tree, Random Forest, Gradient Boosting, KNN) tuned and compared via GridSearchCV.</p>
+      <div class="stack">
+        <span class="chip">Random Forest</span><span class="chip">Gradient Boosting</span><span class="chip">KNN imputation</span><span class="chip">GridSearchCV</span><span class="chip">Feature engineering</span>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="skills-card">
+    <div class="h"><span class="pulse"></span>Skills demonstrated across these projects</div>
+    <div class="skills-row">
+      <div><b>Statistics &amp; inference</b> - hypothesis testing, t-tests, correlation, significance reasoning</div>
+      <div><b>Data wrangling</b> - KNN/median imputation, IQR outlier handling, DST-aware datetimes, feature engineering</div>
+      <div><b>Supervised learning</b> - logistic regression, SGD, decision trees, random forests, gradient boosting, KNN</div>
+      <div><b>Responsible ML</b> - bias detection &amp; mitigation, disparate-impact analysis, SHAP &amp; LIME explainability</div>
+      <div><b>Unsupervised &amp; deep learning</b> - PCA, hierarchical &amp; K-Means clustering, SARIMA, LSTM networks</div>
+      <div><b>Tooling</b> - Python, pandas, NumPy, scikit-learn, statsmodels, TensorFlow/Keras, SHAP, LIME, Matplotlib</div>
+    </div>
+  </div>
+
+  <a class="p-link" href="https://github.com/KeronJr" target="_blank" rel="noopener" style="margin-top:22px">→ Code &amp; full write-ups on GitHub (github.com/KeronJr)</a>
+</section>
+
 <section id="stack" class="block reveal">
   <div class="eyebrow">Capabilities</div>
   <h2>The stack</h2>
-  <p class="sub">From the kernel up to the firewall rule — and the report that explains it.</p>
+  <p class="sub">From the kernel up to the firewall rule - and the report that explains it.</p>
   <div class="stack-grid">
     <div class="cap"><h4><span class="pulse"></span>Containers &amp; cloud</h4><ul>
       <li><b>Docker</b> &amp; Compose (production)</li><li>Kubernetes (coursework + lab)</li><li>Docker Swarm</li><li>GCP / AWS fundamentals</li><li>VMware, VirtualBox</li>
@@ -435,14 +527,14 @@ footer{padding:30px 0 50px;border-top:1px solid var(--border)}
     <div class="cap"><h4><span class="pulse"></span>Security</h4><ul>
       <li><b>Penetration testing</b> &amp; VAPT</li><li>Memory forensics</li><li>Snort IDS &amp; rule authoring</li><li>AES-256, TLS, RBAC, 2FA, audit logging</li><li>Recon → exploit → remediate</li>
     </ul></div>
-    <div class="cap"><h4><span class="pulse"></span>Automation &amp; code</h4><ul>
-      <li><b>Bash</b>, PowerShell, Python</li><li>Flask &amp; API development</li><li>Deployment scripts &amp; runbooks</li><li>Configuration templates</li>
+    <div class="cap"><h4><span class="pulse"></span>Software engineering</h4><ul>
+      <li><b>Python</b>, Bash, PowerShell</li><li>Backend APIs (REST, USSD)</li><li>Full-stack web apps (Flask)</li><li>Interactive prototypes &amp; front-end</li><li>Deployment scripts &amp; runbooks</li>
     </ul></div>
     <div class="cap"><h4><span class="pulse"></span>Monitoring &amp; ops</h4><ul>
       <li>Container health &amp; log monitoring</li><li>Alerting &amp; incident response</li><li>tcpdump, Wireshark, Scapy</li><li>Multi-site distributed estates</li>
     </ul></div>
     <div class="cap"><h4><span class="pulse"></span>Languages</h4><ul>
-      <li><b>English</b> — fluent</li><li><b>Kinyarwanda</b> — native</li><li><b>French</b> — working</li>
+      <li><b>English</b> - fluent</li><li><b>Kinyarwanda</b> - native</li><li><b>French</b> - working</li>
     </ul></div>
   </div>
 </section>
@@ -455,23 +547,23 @@ footer{padding:30px 0 50px;border-top:1px solid var(--border)}
       <h4>Education</h4>
       <div class="edu">
         <div class="deg">M.S., Information Technology</div>
-        <div class="inst">Carnegie Mellon University Africa — Cybersecurity &amp; Software Engineering</div>
-        <div class="yrs">2025 → 2027 (expected) · Mastercard Foundation Scholar</div>
+        <div class="inst">Carnegie Mellon University Africa - Cybersecurity &amp; Software Engineering</div>
+        <div class="yrs">2025 - 2027 (expected) · Mastercard Foundation Scholar</div>
       </div>
       <div class="edu">
         <div class="deg">B.S., Information Technology</div>
-        <div class="inst">Adventist University of Central Africa — Software Engineering</div>
-        <div class="yrs">2020 → 2024 · Graduated with Grand Distinction</div>
+        <div class="inst">Adventist University of Central Africa - Software Engineering</div>
+        <div class="yrs">2020 - 2024 · Graduated with Grand Distinction</div>
       </div>
     </div>
     <div>
       <h4>Certifications</h4>
       <ul class="cert">
-        <li><b>Certified Ethical Hacker (CEH)</b> <span class="by">— EC-Council</span></li>
-        <li><b>Certified Cybersecurity Educator Professional (CCEP)</b> <span class="by">— Red Team Leaders</span></li>
-        <li><b>ISC2 Candidate</b> <span class="by">— ISC2</span></li>
-        <li><b>Network Security · Cybersecurity Essentials · NDG Linux Essentials</b> <span class="by">— Cisco</span></li>
-        <li><b>Google IT Support · Cybersecurity Tools &amp; Attacks</b> <span class="by">— Google / IBM</span></li>
+        <li><b>Certified Ethical Hacker (CEH)</b> <span class="by">- EC-Council</span></li>
+        <li><b>Certified Cybersecurity Educator Professional (CCEP)</b> <span class="by">- Red Team Leaders</span></li>
+        <li><b>ISC2 Candidate</b> <span class="by">- ISC2</span></li>
+        <li><b>Network Security · Cybersecurity Essentials · NDG Linux Essentials</b> <span class="by">- Cisco</span></li>
+        <li><b>Google IT Support · Cybersecurity Tools &amp; Attacks</b> <span class="by">- Google / IBM</span></li>
       </ul>
     </div>
   </div>
@@ -483,7 +575,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--border)}
   <div class="contact-card">
     <div class="eyebrow">Get in touch</div>
     <h2>Need someone who can <span class="hl">own uptime and security</span>?</h2>
-    <p class="sub">I'm open to remote roles and contracts in infrastructure, security operations, and systems administration. Based in Kigali (UTC+2) with strong overlap with EMEA, UK, and US-East hours — the fastest way to reach me is email, and I usually reply within a day.</p>
+    <p class="sub">I'm open to remote roles and contracts in infrastructure, security operations, and systems administration. Based in Kigali (UTC+2) with strong overlap with EMEA, UK, and US-East hours - the fastest way to reach me is email, and I usually reply within a day.</p>
 
     <a class="email-primary" href="mailto:kmuhiire@andrew.cmu.edu?subject=Opportunity%20for%20Keron"><span class="ico">✉</span>kmuhiire@andrew.cmu.edu</a>
 
